@@ -1,0 +1,193 @@
+{
+    "trains":[
+        {
+            "trainName" : "Covai Express",
+            "trainNo" : "COV01",
+            "days" : "mon,tue,wed",
+            "totalSeats" : "25"
+        },
+        {
+            "trainName" : "Chennai Express",
+            "trainNo" : "CHE002",
+            "days" : "mon,tue,wed,thur,fri,sat,sun",
+            "totalSeats" : "20"
+        },
+        {
+            "trainName" : "Duronto Express",
+            "trainNo" : "CHE002",
+            "days" : "mon,tue,wed,thur,fri,sat,sun",
+            "totalSeats" : "15"
+        },
+        {
+            "trainName" : "Rajdhani Express",
+            "trainNo" : "12426",
+            "days" : "mon,tue,fri,sat",
+            "totalSeats" : "50"
+        }
+       
+    ],
+    "trains-endpoints":[
+        {
+            "startPoint" : "Coimbatore",
+            "destPoint" : "Karur",
+            "departureTime" : "12.00",
+            "arrivalTime" : "14.00",
+            "fare" : "70",
+            "trainNo" : "COV01"
+        },
+        {
+            "startPoint" : "Coimbatore",
+            "destPoint" : "Trichy",
+            "departureTime" : "18.30",
+            "arrivalTime" : "20.30",
+            "fare" : "120",
+            "trainNo" : "COV01"
+        },
+        {
+            "startPoint" : "Coimbatore",
+            "destPoint" : "Trichy",
+            "departureTime" : "18.30",
+            "arrivalTime" : "20.30",
+            "fare" : "120",
+            "trainNo" : "CHE002"
+        },
+        {
+            "startPoint" : "Coimbatore",
+            "destPoint" : "Perambalur",
+            "departureTime" : "12.00",
+            "arrivalTime" : "14.00",
+            "fare" : "70",
+            "trainNo" : "COV01"
+        },
+        {
+            "startPoint": "Coimbatore",
+            "destPoint": "Kumbakonam",
+            "departureTime": "12:00",
+            "arrivalTime": "17:00",
+            "fare": "100",
+            "trainNo": "COV01"
+        },
+        {
+            "startPoint": "Coimbatore",
+            "destPoint": "Thanjavur",
+            "departureTime": "12:00",
+            "arrivalTime": "19:00",
+            "fare": "130",
+            "trainNo": "COV01"
+        },
+        {
+            "startPoint": "Karur",
+            "destPoint": "Trichy",
+            "departureTime": "14:00",
+            "arrivalTime": "15:00",
+            "fare": "45",
+            "trainNo": "COV01"
+        },
+        {
+            "startPoint": "Karur",
+            "destPoint": "Kumbakonam",
+            "departureTime": "14:00",
+            "arrivalTime": "17:00",
+            "fare": "75",
+            "trainNo": "COV01"
+        },
+        {
+            "startPoint": "Karur",
+            "destPoint": "Thanjavur",
+            "departureTime": "14:00",
+            "arrivalTime": "19:00",
+            "fare": "100",
+            "trainNo": "COV01"
+        },
+        {
+            "startPoint": "Trichy",
+            "destPoint": "Kumbakonam",
+            "departureTime": "15:00",
+            "arrivalTime": "17:00",
+            "fare": "40",
+            "trainNo": "COV01"
+        },
+        {
+            "startPoint": "Trichy",
+            "destPoint": "Thanjavur",
+            "departureTime": "15:00",
+            "arrivalTime": "19:00",
+            "fare": "60",
+            "trainNo": "COV01"
+        },
+        {
+            "startPoint": "Kumbakonam",
+            "destPoint": "Thanjavur",
+            "departureTime": "17:00",
+            "arrivalTime": "19:00",
+            "fare": "40",
+            "trainNo": "COV01"
+        },
+        {
+            "startPoint" : "Mumbai",
+            "destPoint" : "Ahmedabad",
+            "departureTime" : "23.25",
+            "arrivalTime" : "05.55",
+            "fare" : "130",
+            "trainNo" : "12267"
+        },
+        {
+            "startPoint" : "Secunderabad",
+            "destPoint" : "Visakapatinam",
+            "departureTime" : "20.15",
+            "arrivalTime" : "06.35",
+            "fare" : "300",
+            "trainNo" : "CHE002"
+        },
+        {
+            "startPoint" : "Madurai",
+            "destPoint" : "Chennai Central",
+            "departureTime" : "22.40",
+            "arrivalTime" : "07.20",
+            "fare" : "250",
+            "trainNo" : "CHE002"
+        },
+        {
+            "startPoint" : "Jammu tawi",
+            "destPoint" : "New delhi",
+            "departureTime" : "19.40",
+            "arrivalTime" : "05.05",
+            "fare" : "450",
+            "trainNo" : "CHE002"
+        },
+        {
+            "startPoint" : "Secunderabad",
+            "destPoint" : "Hazrat nizamuddin",
+            "departureTime" : "12.45",
+            "arrivalTime" : "10.25",
+            "fare" : "270",
+            "trainNo" : "12426"
+        },
+        {
+            "startPoint" : "Mumbai",
+            "destPoint" : "New Delhi",
+            "departureTime" : "16.35",
+            "arrivalTime" : "08.35",
+            "fare" : "370",
+            "trainNo" : "12426"
+        },
+        {
+            "startPoint" : "New Delhi",
+            "destPoint" : "Lucknow",
+            "departureTime" : "20.50",
+            "arrivalTime" : "06.40",
+            "fare" : "250",
+            "trainNo" : "12426"
+        },
+        {
+            "startPoint" : "New Delhi",
+            "destPoint" : "Lucknow",
+            "departureTime" : "20.50",
+            "arrivalTime" : "06.40",
+            "fare" : "250",
+            "trainNo" : "12426"
+        }
+
+
+    ]
+}
