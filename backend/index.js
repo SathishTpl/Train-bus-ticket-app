@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 const { MONGODB_URL } = require('./config/config');
 const userRoute = require('./src/controller/userController')
 const trainRouter = require('./src/controller/trainsController');
-const busRouter = require('./src/controller/busesController');
 const { sampleDataImport } = require('./src/services/commonServices');
 const app = express();
 

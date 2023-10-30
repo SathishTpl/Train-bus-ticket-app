@@ -16,9 +16,6 @@ import Register from './Register/register';
 import TrainSearch from './TrainSearch/trainSearch';
 import Trainlist from './Trainlist/trainList';
 import TrainBooking from './TrainBooking/trainBooking';
-import BusSearch from './BusSearch/busSearch';
-import Buslist from './Buslist/Buslist';
-import BusBooking from './BusBooking/busBooking';
 import Profile from './Profile&Activity/Profile';
 import Activity from './Profile&Activity/Activity';
 
@@ -38,9 +35,6 @@ function App() {
           <Route path="/trainSearch" component={TrainSearch}/>
           <Route path="/trainList" component={Trainlist}/>
           <Route path="/trainBooking" component={TrainBooking}/>
-          <Route path = "/busSearch" component={BusSearch}/>
-          <Route path="busList" component={Buslist}/>
-          <Route path= "/busBooking" component={BusBooking}/>
           <Route path = "/Profile" component={Profile}/>
           <Route path = "/Activity" component={Activity}/>
           <Redirect from="*" to="/"/>

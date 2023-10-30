@@ -12,6 +12,7 @@ axiosInstance.interceptors.response.use(undefined, (err)=> {
 );
 
 export function getAPIConfig(endpoint) {
+    console.log(APIs[endpoint])
     return APIs[endpoint];
 }
 

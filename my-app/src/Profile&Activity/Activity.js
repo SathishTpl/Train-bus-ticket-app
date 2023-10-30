@@ -27,6 +27,7 @@ const Activity=()=>{
         if(response?.status){
             console.log("cancelResponse",response); 
             toast.success("sucessfully Cancelled")
+            GetTrains()
         }
         
         }
@@ -41,24 +42,19 @@ const Activity=()=>{
             endpoint: "getBookingDetails",
             body: {
                 userId: postName._id,
-
-
             }
         })
 
         if (response?.data) {
             console.log("BookingReponse", response);
             setpostData(response.data)
-
             toast.success(response?.message);
 
         }
 
     }
     const dateFormat=(date)=>{
-        
         return moment(date).format("DD/MM/YYYY")
-        
         }
     
 

@@ -9,6 +9,11 @@ const USER_APIS = {
         method: 'post',
         
     },
+    userUpdate: {
+        url: `${USER_BASE_URL}/edit_user/`,
+        method: 'put',
+        
+    },
     usercreateUser: {
         url: `${USER_BASE_URL}/createUser`,
         method: 'post',

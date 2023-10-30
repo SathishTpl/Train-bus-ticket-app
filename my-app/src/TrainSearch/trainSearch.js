@@ -89,20 +89,12 @@ const TrainSearch = (props) => {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         {/* button list */}
                         <ul className="navbar-nav">
-                            <li className="nav-item active ">
-                                <a className="nav-link " href="#">{bookingType=='1'?"Train":"Bus"} Search</a>
+                            <li className="nav-item ">
+                                <Link className='link' to='/trainSearch'>  <a className="nav-link " href="#">{bookingType == '1' ? "Train" : "Bus"} Search</a></Link>
                             </li>
-                            <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#navbarDropdownMenuLink1" aria-controls="navbarNa">
-                                    Profile
-                                </a>
-                                <div className="dropdown-menu" id="navbarDropdownMenuLink1">
-                                    <Link className="link" to ='/Profile'><a className="dropdown-item" href="#">Profile</a></Link>
-                                    <a className="dropdown-item" href="#">Activity</a>
-                                   </div></li>
-                            {/* <li className="nav-item">
-                  <a className="nav-link" href="#">Profile</a>
-              </li> */}
+                            <li className="nav-item">
+                                <Link className="link" to='/Profile' style={{ textDecoration: 'none' }}><a className="nav-link" href="#">Profile</a></Link>
+                            </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#" onClick={logOut}>Logout</a>
                             </li>

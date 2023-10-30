@@ -1,17 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import './Profile.css';
-import { makeAPICall } from "../Services/api";
 import { Link } from 'react-router-dom'
-import { toast } from 'react-toastify'
 import Activity from "./Activity";
-
-
-
+import { makeAPICall } from "../Services/api";
+import { toast } from "react-toastify";
 
 const Profile = (props) => {
     const [bookingType, setBookingType] = useState(localStorage.getItem("bookingType"))
     const [postName, setpostName] = useState(JSON.parse(localStorage.getItem("user")))
-    const [postData, setPostData] = useState(JSON.parse(localStorage.getItem("searchtrain")))
     // const [trains, setTrains] = useState([])
 
     const logOut = async () => {
@@ -19,43 +15,37 @@ const Profile = (props) => {
         props.history.push('/login')
 
     }
-    useEffect(() => {
-        // GetTrains()
-    }, [])
 
-    const GetTrains = async () => {
-
-        console.log("inside");
-        let userId = localStorage.getItem("user")?._id
-        const response = await makeAPICall({
-            endpoint: "getBookingDetails",
-            body: {
-                userId: postName._id,
-
-
-            }
-        })
-
-        if (response?.data) {
-            console.log("BookingReponse", response);
-            toast.success(response?.message);
-
-        }
-
+    const handleChange = async (e) => {
+        setpostName(prevState=>({...prevState,[e.target.name]:e.target.value}))
     }
 
-    // const cancelTrain=async()=>{
-
-    // }
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        console.log("postName",postName)
+        const response=await makeAPICall({
+            endpoint:"userUpdate",
+                body:postName,
+                query: postName._id
+            
+        })
+        if(response?.data){
+            console.log("response",response);
+            toast.success(response?.message);
+        }
+        else{
+            toast.error(response?.err.message)
+        }
+    }
 
     return (
-        <div className={"container-fluid col-md-8 " + ((bookingType=='1')? 'train-bg-image':'bus-bg-image')}>
+        <div className={"container-fluid col-md-8 " + ((bookingType == '1') ? 'train-bg-image' : 'bus-bg-image')}>
             <div className=" root-container col-md-10">
                 {/* navbar section */}
 
                 <nav className="navbar navbar-expand-lg navbar-light ">
                     {/* bg-primary */}
-                    <b>{bookingType=='1'?"Train":"Bus"} Ticket Reservation</b>
+                    <b>{bookingType == '1' ? "Train" : "Bus"} Ticket Reservation</b>
                     {/* <a className="navbar-brand" href="#">Train Ticket Reservation</a> */}
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav">
                         <span className="navbar-toggler-icon"></span>
@@ -63,17 +53,12 @@ const Profile = (props) => {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         {/* button list */}
                         <ul className="navbar-nav">
-                            <li className="nav-item active ">
-                                <Link className="link" to='/trainSearch'><a className="nav-link " href="#">{bookingType=='1'?"Train":"Bus"} Search</a></Link>
+                            <li className="nav-item">
+                                <Link className='link' to='/trainSearch'style={{ textDecoration: 'none' }}>  <a className="nav-link " href="#">{bookingType == '1' ? "Train" : "Bus"} Search</a></Link>
                             </li>
-                            <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#navbarDropdownMenuLink1" aria-controls="navbarNa">
-                                    Profile
-                                </a>
-                                <div className="dropdown-menu" id="navbarDropdownMenuLink1">
-                                <Link className="link" to ='/Profile'><a className="dropdown-item" href="#">Profile</a></Link><a className="dropdown-item" href="#">Another action</a>
-                                    <a className="dropdown-item" href="#">Activity</a></div></li>
-                            
+                            <li className="nav-item">
+                                <Link className="link" to='/Profile' style={{ textDecoration: 'none' }}><a className="nav-link" href="#">Profile</a></Link>
+                            </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#" onClick={logOut}>Logout</a>
                             </li>
@@ -97,49 +82,45 @@ const Profile = (props) => {
                         </nav>
                         <div className="tab-content" id="nav-tabContent">
                             <div className="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-home-tab">
-                                <form>
+                                <form onSubmit={handleSubmit}>
                                     <div className="form-group">
                                         <label>Username</label>
-                                        <input type="text" formControlName="name" className="form-control form-control-sm" value={postName.name} />
+                                        <input type="text" formControlName="name" className="form-control form-control-sm" name="name"
+                                        value={postName.name} onChange={handleChange} />
                                     </div>
                                     <div className="form-group">
                                         <label>Gender</label>
-                                        <select type="text" formControlName="gender" className="form-control form-control-sm">
-                                            <option value="M">Male</option>
-                                            <option value="F">Female</option>
+                                        <select type="text" formControlName="gender" className="form-control form-control-sm" name="gender" 
+                                        value={postName.gender} onChange={handleChange} >
+                                            <option value="1">Male</option>
+                                            <option value="2">Female</option>
                                         </select>
                                     </div>
                                     <div className="form-group">
                                         <label>Phone</label>
-                                        <input type="text" formControlName="phone" className="form-control form-control-sm" value={postName.phone} />
+                                        <input type="number" formControlName="phone" className="form-control form-control-sm" name="phone"
+                                        value={postName.phone} onChange={handleChange}  />
                                     </div>
                                     <div className="form-group">
                                         <label>Email</label>
-                                        <input type="email" formControlName="email" className="form-control form-control-sm" value={postName.email} />
+                                        <input type="email" formControlName="email" className="form-control form-control-sm" name="email"
+                                        value={postName.email} onChange={handleChange} />
                                     </div>
                                     <div className="form-group">
-                                        <button type="button" className="btn btn-outline-primary mr-2 mb-2 pt-1  align-item-center btn-sm">Update</button>
+                                        <button type="submit" className="btn btn-outline-primary mr-2 mb-2 pt-1  align-item-center btn-sm">Update</button>
                                     </div>
 
                                 </form>
                             </div>
 
- <div className="tab-pane fade" id="nav-activity" role="tabpanel" aria-labelledby="nav-activity-tab">
-     <Activity/>
-     
-          
-            </div>
-     </div>
-
-
-
+                            <div className="tab-pane fade" id="nav-activity" role="tabpanel" aria-labelledby="nav-activity-tab">
+                                <Activity />
+                            </div>
                         </div>
-
-
-
                     </div>
                 </div>
             </div>
+        </div>
         // </div>
     );
 }

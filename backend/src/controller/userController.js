@@ -19,6 +19,22 @@ userRouter.post('/createUser', (req, res) => {
         res.status(400).send({message: err.message, status: '0'});
     });
 });
+
+userRouter.put('/edit_user/:id', async (req, res) => {
+    try {
+        const updateresult = await UserModel.findByIdAndUpdate({ _id: req.params.id }, { $set: req.body }, { new: true })
+        // console.log(updateresult)
+        res.status(200).send({
+            message: 'User updated successfully',
+            data: updateresult,
+        })
+    }
+    catch (error) {
+        res.status(500).send({ error: error.message })
+    }
+
+})
+
 // -------------------------------------------------------------------------------------------------------
 // create login api
 
